@@ -5,9 +5,7 @@ const { canEditUsers, canModifyAdmins } = require('../RBAC/rpac.js');
 
 const adminOptions = {
   properties: {
-    encryptedPassword: {
-      isVisible: false,
-    },
+    encryptedPassword: { isVisible: false },
     password: {
       type: 'string',
       isVisible: {
@@ -31,6 +29,9 @@ const adminOptions = {
         return request;
       },
     },
+    edit: { isAccessible: canModifyAdmins },
+    delete: { isAccessible: canModifyAdmins },
+    new: { isAccessible: canModifyAdmins },
   },
 };
 
